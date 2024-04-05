@@ -10,10 +10,14 @@ import SignUpCompany from "./pages/Account/SignUpCompany";
 import SignUpCompany2 from "./pages/Account/SignUpCompany2";
 import SignUpCompany3 from "./pages/Account/SignUpCompany3";
 import SignUp from "./pages/Account/SignUp";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route path="/" element={<Footer />} />
+      <Route path="/nav" element={<Nav />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/SignUpUser" element={<SignUpUser />} />
       <Route path="/SignUpCompany" element={<SignUpCompany />} />
@@ -25,6 +29,12 @@ const router = createBrowserRouter(
 
 function App() {
   return <RouterProvider router={router} />;
+  
 }
+// const App = () => {
+//   return (
+//     <Nav/>
+//   )
+// }
 
 export default App;
