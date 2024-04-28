@@ -10,14 +10,27 @@ import SignUpCompany from "./pages/Account/SignUpCompany";
 import SignUpCompany2 from "./pages/Account/SignUpCompany2";
 import SignUpCompany3 from "./pages/Account/SignUpCompany3";
 import SignUp from "./pages/Account/SignUp";
+import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import Rating from "./components/Rating";
+import HomeTry from "./pages/HomeTry";
+import Search from "./pages/Search";
+import SearchTest from "./pages/SearchTest";
+import SearchDdn from "./pages/SearchDdn";
+import Table from "./components/Table";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<Footer />} />
-      <Route path="/nav" element={<Nav />} />
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<Home />} />
+      </Route>
+      
+      <Route path="/Search" element={<SearchTest />}></Route>
+      <Route path="/SearchDnd" element={<SearchDdn />}></Route>
+      <Route path="/test" element={<Table/>}></Route>
+      
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/SignUpUser" element={<SignUpUser />} />
       <Route path="/SignUpCompany" element={<SignUpCompany />} />
@@ -28,13 +41,12 @@ const router = createBrowserRouter(
 );
 
 function App() {
-  return <RouterProvider router={router} />;
-  
+  return (
+    <div className="h-full">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
-// const App = () => {
-//   return (
-//     <Nav/>
-//   )
-// }
+
 
 export default App;
