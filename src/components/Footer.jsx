@@ -20,8 +20,8 @@ import { FaLinkedinIn } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-    <Nav/>
-    <div className="bg-custom-linearGradient dark:bg-custom-linearGradient-dark w-full h-[50vh] mt-[50px] flex flex-col items-center justify-center text-white dark:text-darkMode rounded-t-[40px] ">
+    
+    <div className="bg-custom-linearGradient dark:bg-custom-linearGradient-dark w-full h-full mt-[50px] flex flex-col items-center justify-center text-white dark:text-darkMode rounded-t-[40px] ">
       <div className="container flex items-center justify-between border-t-[1px] border-b-[1px] border-white   h-[60%] w-[80%] ">
         <div className="   sm:ml-[10%]">
           <img

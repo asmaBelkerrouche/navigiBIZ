@@ -10,17 +10,19 @@
     background: linear-gradient(221.3deg, #c3a046 22.23%, #eddfbb 96.67%);
   }
 
-
   .bg-custom-gradient-blue {
     background: linear-gradient(50.52deg, #4dc9ff 14%, #bfecff 100%);
-  }.bg-custom-gradient-blue-dark{
-    background: linear-gradient(47.06deg, #399DC8 14.01%, #B8E9FF 120.12%);
   }
-  .bg-custom-circles-dark{
-    background: linear-gradient(167.9deg, #51B8FF 9.54%, #246ACF 96.21%);
-
+  .bg-custom-gradient-blue-dark {
+    background: linear-gradient(47.06deg, #399dc8 14.01%, #b8e9ff 120.12%);
   }
-
+  .bg-custom-circles-dark {
+    background: linear-gradient(167.9deg, #51b8ff 9.54%, #246acf 96.21%);
+  }
+  .bg-custom-circles {
+    background: linear-gradient(118.53deg, #70c4fc 35.99%, #509eff 97.86%);
+  }
+  
   .bg-custom-linearGradient {
     background: linear-gradient(
       294.53deg,
@@ -37,4 +39,10 @@
       #51b8ff 88.04%
     );
   }
+
+  
 }
+
+/* .slick-slider > div .main {
+  width: 100px;
+} */

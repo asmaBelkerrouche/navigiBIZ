@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { LiaBuildingSolid } from "react-icons/lia";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import Nav from "../../components/Nav";
+import "../../App.css";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

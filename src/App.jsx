@@ -14,22 +14,22 @@ import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Rating from "./components/Rating";
-import HomeTry from "./pages/HomeTry";
+
 import Search from "./pages/Search";
-import SearchTest from "./pages/SearchTest";
-import SearchDdn from "./pages/SearchDdn";
-import Table from "./components/Table";
+
+// import SearchDdn from "./pages/SearchDdn";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<RootLayout />}>
+      {/* <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
-      </Route>
+      </Route> */}
       
-      <Route path="/Search" element={<SearchTest />}></Route>
-      <Route path="/SearchDnd" element={<SearchDdn />}></Route>
-      <Route path="/test" element={<Table/>}></Route>
+      <Route index element={<Home />} />
+      <Route path="/Search" element={<Search />}></Route>
+   
       
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/SignUpUser" element={<SignUpUser />} />

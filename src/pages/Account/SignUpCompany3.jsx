@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { BiSolidFileImport } from "react-icons/bi";
 import { Form } from "react-router-dom";
 import Nav from "../../components/Nav";
+import "../../App.css";
 
 const SignUpCompany3 = () => {
   // initial state Start

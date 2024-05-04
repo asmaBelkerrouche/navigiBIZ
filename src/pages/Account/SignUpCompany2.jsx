@@ -5,6 +5,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Link, Form, useNavigate } from "react-router-dom";
 import Nav from "../../components/Nav";
+import "../../App.css";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

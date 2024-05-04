@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaCircle } from "react-icons/fa";
 import { Form, useNavigate } from "react-router-dom";
 import Nav from "../../components/Nav";
+import "../../App.css";
 
 const SignUpCompany = () => {
   // initial state Start

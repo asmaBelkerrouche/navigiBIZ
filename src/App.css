@@ -10,3 +10,13 @@
 body{
     font-family: "Inter", sans-serif;
 }
+input[type="radio"]{
+display: none;
+}
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}
+.slick-slide > div {
+    margin: 0 20px;
+}

@@ -14,6 +14,7 @@ import { TbSunMoon } from "react-icons/tb";
 import { TbMessageCircle } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsPerson } from "react-icons/bs";
+import { IoMenu } from "react-icons/io5";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -59,13 +60,8 @@ const Nav = () => {
   };
 
   return (
-    <div
-      className={classNames(
-        `App ${isDarkMode ? "dark" : ""}`
-        
-      )}
-    >
-      <div className="flex justify-between items-center  w-[90%] h-[55px]  rounded-[50px] ">
+    <div className={classNames(`App ${isDarkMode ? "dark" : ""}`)}>
+      <div className="flex justify-between items-center bg-white dark:bg-darkMode dark:text-white  w-[100%] h-[55px]  rounded-[50px] ">
         <div className="size-[30px] sm:w-[127px] sm:h-[33.54px] ml-[15px] sm:ml-[35px] ">
           {/* medium + large screen */}
           <img
@@ -91,11 +87,12 @@ const Nav = () => {
         <BsPerson className="m-3 size-[25px]" />
         <IoSettingsOutline className="m-3 size-[25px]" />*/}
 
-          
           <Menu as="div" className="inline-block relative  text-left ">
             <div>
               <Menu.Button className=" m-3 -mr-3 size-[25px]">
-                <img src={menu} alt="" className="size-full" />
+                
+                  <IoMenu className="size-full" />
+                
               </Menu.Button>
             </div>
 
@@ -116,7 +113,10 @@ const Nav = () => {
                       className="flex items-center px-4 py-2 text-sm w-full after:h-[3px] after:w-40 after:bg-border-gray after:absolute  after:top-1/3 after:left-3.5 "
                     >
                       <img src={chat} alt="" className="m-3 ml-1 size-[25px]" />
-                      <p className="font-bold ml-2 text-base"> Chat</p>
+                      <p className="font-bold ml-2 text-base dark:text-darkMode">
+                        {" "}
+                        Chat
+                      </p>
                     </Link>
                   </Menu.Item>
                   <Menu.Item>
@@ -129,108 +129,113 @@ const Nav = () => {
                         alt=""
                         className="m-3 ml-1  size-[25px]"
                       />
-                      <p className="font-bold ml-2 text-base">My Profile</p>
+
+                      <p className="font-bold ml-2 text-base dark:text-darkMode">
+                        My Profile
+                      </p>
                     </Link>
                   </Menu.Item>
                   <Menu.Item>
-                    <button className="flex items-center px-4 py-2 text-sm  w-full">
-                      <Menu
-                        as="div"
-                        className="inline-block relative  text-left "
-                      >
-                        <div>
-                          <Menu.Button className=" flex items-center px-4 py-2 text-sm w-full   ">
-                            <img
-                              src={parameters}
-                              alt=""
-                              className="m-3 -ml-2 size-[25px]"
-                            />
-                            <p className="font-bold ml-2 text-base">
-                              {" "}
-                              Settings
-                            </p>
-                          </Menu.Button>
-                        </div>
-
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
+                    {({ active }) => (
+                      <div className="flex items-center px-4 py-2 text-sm  w-full">
+                        <Menu
+                          as="div"
+                          className="inline-block relative  text-left "
                         >
-                          <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-[25px] bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border-[3px] border-border-gray overflow-hidden">
-                            <div className="py-1">
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    onClick={setLightMode}
-                                    className={classNames(
-                                      active
-                                        ? "bg-gray-100 text-gray-900"
-                                        : "text-gray-700",
-                                      "flex items-center px-4 py-2 text-sm w-full after:h-[3px] after:w-40 after:bg-border-gray after:absolute  after:top-1/3 after:left-3.5 "
-                                    )}
-                                  >
-                                    <img
-                                      src={sun}
-                                      alt=""
-                                      className="m-3 ml-1 size-[25px]"
-                                    />
-                                    <p className="font-bold ml-2 text-base">
-                                      {" "}
-                                      Light Mode
-                                    </p>
-                                  </button>
-                                )}
-                              </Menu.Item>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    onClick={setDarkMode}
-                                    className={classNames(
-                                      active
-                                        ? "bg-gray-100 text-gray-900"
-                                        : "text-gray-700",
-                                      "flex items-center px-4 py-2 text-sm w-full after:h-[3px] after:w-40 after:bg-border-gray after:absolute  after:bottom-1/3 after:left-3.5"
-                                    )}
-                                  >
-                                    <img
-                                      src={moon}
-                                      alt=""
-                                      className="m-3 ml-1 size-[25px]"
-                                    />
-                                    <p className="font-bold ml-2 text-base">
-                                      Dark Mode
-                                    </p>
-                                  </button>
-                                )}
-                              </Menu.Item>
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <button
-                                    onClick={handleSystemDefault}
-                                    className={classNames(
-                                      active
-                                        ? "bg-gray-100 text-gray-900"
-                                        : "text-gray-700",
-                                      "flex items-center px-4 py-2 text-sm  w-full"
-                                    )}
-                                  >
-                                    <TbSunMoon className="m-2 ml-1 size-[35px] text-black" />
-                                    <p className="font-bold  text-base">
-                                      System Default
-                                    </p>
-                                  </button>
-                                )}
-                              </Menu.Item>
-                            </div>
-                          </Menu.Items>
-                        </Transition>
-                      </Menu>
-                    </button>
+                          <div>
+                            <Menu.Button className=" flex items-center px-4 py-2 text-sm w-full   ">
+                              <img
+                                src={parameters}
+                                alt=""
+                                className="m-3 -ml-2 size-[25px]"
+                              />
+                              <p className="font-bold ml-2 text-base dark:text-darkMode">
+                                {" "}
+                                Settings
+                              </p>
+                            </Menu.Button>
+                          </div>
+
+                          <Transition
+                            as={Fragment}
+                            enter="transition ease-out duration-100"
+                            enterFrom="transform opacity-0 scale-95"
+                            enterTo="transform opacity-100 scale-100"
+                            leave="transition ease-in duration-75"
+                            leaveFrom="transform opacity-100 scale-100"
+                            leaveTo="transform opacity-0 scale-95"
+                          >
+                            <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-[25px] bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none border-[3px] border-border-gray overflow-hidden">
+                              <div className="py-1">
+                                <Menu.Item>
+                                  {({ active }) => (
+                                    <button
+                                      onClick={setLightMode}
+                                      className={classNames(
+                                        active
+                                          ? "bg-gray-100 text-gray-900"
+                                          : "text-gray-700",
+                                        "flex items-center px-4 py-2 text-sm w-full after:h-[3px] after:w-40 after:bg-border-gray after:absolute  after:top-1/3 after:left-3.5 "
+                                      )}
+                                    >
+                                      <img
+                                        src={sun}
+                                        alt=""
+                                        className="m-3 ml-1 size-[25px]"
+                                      />
+                                      <p className="font-bold ml-2 text-base">
+                                        {" "}
+                                        Light Mode
+                                      </p>
+                                    </button>
+                                  )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                  {({ active }) => (
+                                    <button
+                                      onClick={setDarkMode}
+                                      className={classNames(
+                                        active
+                                          ? "bg-gray-100 text-gray-900"
+                                          : "text-gray-700",
+                                        "flex items-center px-4 py-2 text-sm w-full after:h-[3px] after:w-40 after:bg-border-gray after:absolute  after:bottom-1/3 after:left-3.5"
+                                      )}
+                                    >
+                                      <img
+                                        src={moon}
+                                        alt=""
+                                        className="m-3 ml-1 size-[25px]"
+                                      />
+                                      <p className="font-bold ml-2 text-base">
+                                        Dark Mode
+                                      </p>
+                                    </button>
+                                  )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                  {({ active }) => (
+                                    <button
+                                      onClick={handleSystemDefault}
+                                      className={classNames(
+                                        active
+                                          ? "bg-gray-100 text-gray-900"
+                                          : "text-gray-700",
+                                        "flex items-center px-4 py-2 text-sm  w-full"
+                                      )}
+                                    >
+                                      <TbSunMoon className="m-2 ml-1 size-[35px] text-black" />
+                                      <p className="font-bold  text-base">
+                                        System Default
+                                      </p>
+                                    </button>
+                                  )}
+                                </Menu.Item>
+                              </div>
+                            </Menu.Items>
+                          </Transition>
+                        </Menu>
+                      </div>
+                    )}
                   </Menu.Item>
                 </div>
               </Menu.Items>
@@ -240,20 +245,23 @@ const Nav = () => {
 
         {/* medium + large screen */}
         <div className="hidden sm:flex items-center justify-between mr-[35px]">
-          {/* <TbMessageCircle className='m-3 size-[25px]'/> 
-        <BsPerson className="m-3 size-[25px]" />
-        <IoSettingsOutline className="m-3 size-[25px]" />*/}
-          <Link >
-            <img src={chat} alt="" className="m-3 size-[25px]" />
+          <Link>
+            {/* <img src={chat} alt="" className="m-3 size-[25px]" /> */}
+            <TbMessageCircle className="m-3 size-[25px]" />
           </Link>
-          <Link >
-            <img src={person} alt="" className="m-3 size-[25px]" />
+          <Link>
+            {/* <img src={person} alt="" className="m-3 size-[25px]" /> */}
+            <BsPerson className="m-3 size-[25px]" />
           </Link>
-          
+
           <Menu as="div" className="inline-block relative  text-left">
             <div>
               <Menu.Button className=" m-3 mr-1 size-[25px]">
-                <img src={parameters} alt="" className="size-full" />
+                {/* <img src={parameters} alt="" className="size-full" /> */}
+
+                
+                  <IoSettingsOutline className="size-full" />
+                
               </Menu.Button>
             </div>
 
