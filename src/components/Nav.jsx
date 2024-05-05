@@ -15,19 +15,14 @@ import { TbMessageCircle } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
 import { BsPerson } from "react-icons/bs";
 import { IoMenu } from "react-icons/io5";
+import PropTypes from 'prop-types';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const Nav = () => {
-  const [pageTitle, setPageTitle] = useState("Home page");
-
-  // Function to change the page title
-  const changePage = (newTitle) => {
-    setPageTitle(newTitle);
-  };
-
+const Nav = (props) => {
+  
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("theme");
     return (
@@ -78,7 +73,9 @@ const Nav = () => {
         </div>
         <div>
           <p className="tracking-wide font-[Viga] dark:text-white">
-            {pageTitle}
+            {/* {pageTitle} */}
+            
+            {props.title}
           </p>
         </div>
         {/* phone screen */}

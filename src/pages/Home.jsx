@@ -5,11 +5,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BsChevronRight } from "react-icons/bs";
 import { BsChevronLeft } from "react-icons/bs";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import { TiStarFullOutline } from "react-icons/ti";
 import { IoIosArrowDown } from "react-icons/io";
 import Rating from "../components/Rating";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from 'react-router-dom';
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 // import  images
 import homeImage from "../assets/homeImage.png";
@@ -65,13 +66,14 @@ const SamplePrevArrow = (props) => {
 
 const Home = () => {
   // Search Start
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  
 
   const handleSearch = () => {
-    navigate(`/Search?query=${searchQuery}`);
+    navigate(`/SearchDnd?query=${searchQuery}`);
   };
-  // Search End
+// Search End
 
   // start carrousel
   const settings = {
@@ -184,7 +186,7 @@ const Home = () => {
     <div className=" dark:bg-darkMode dark:text-darkMode pb-[200px]">
       <div className="relative w-full flex justify-center  ">
         <div className="absolute  w-[80%] top-[25px] z-10">
-          <Nav />
+          <Nav  title="Home Page"/>
         </div>
       </div>
       {/* home start */}
@@ -209,15 +211,14 @@ const Home = () => {
                 type="text"
                 placeholder="Search Here ..."
                 className="w-full h-fit  p-[15px] text-xs rounded-[50px] focus:outline-none dark:bg-darkMode dark:text-white"
-                value={searchQuery}
+               value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-              />
+                />
 
               <button
                 type="submit"
                 className=" absolute right-1 top-[1.75px] text-center text-xs font-bold dark:text-darkMode tracking-widest bg-main-yellow  border-none rounded-[50px] px-3 md:px-4 py-3    "
-                onClick={handleSearch}
-              >
+                onClick={handleSearch}>
                 Search
               </button>
               {/* right-[24%] sm:right-[18%] md:right-[22%] */}
@@ -325,6 +326,7 @@ const Home = () => {
             {datacompanies.map((d) => (
               <div
                 key={d.id}
+                
                 className=" border-[1px]  border-border-gray bg-white dark:bg-darkMode-product rounded-[10px]  h-[250px]  relative "
               >
                 <div className=" main flex justify-center items-center mt-20">
@@ -351,7 +353,6 @@ const Home = () => {
         {/* Blue bubbles end */}
       </div>
       {/* Services carousel End */}
-      
     </div>
     <div className=" w-full h-[50vh] bottom-[0vh] ">
             <Footer />

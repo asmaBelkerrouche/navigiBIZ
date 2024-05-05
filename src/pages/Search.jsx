@@ -101,7 +101,7 @@ const Search = () => {
     <div className=" relative h-fit dark:bg-darkMode ">
       <div className="relative w-full flex justify-center  ">
         <div className="absolute  w-[80%] top-[25px] z-10">
-          <Nav />
+        <Nav title="Search Page"/>
         </div>
       </div>
 
