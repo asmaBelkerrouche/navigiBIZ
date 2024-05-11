@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
-
+import background from "../assets/background.png";
+import Pagination from "../components/Pagination";
+import ProductCard from "../components/ProductCard";
+import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import Products from "../components/Products";
 import Rating from "../components/Rating";
 import { IoIosArrowDown } from "react-icons/io";
 import ReactPaginate from "react-paginate";
+import { useLocation } from "react-router-dom";
 
-const Search = () => {
+import Select from "react-tailwindcss-select";
+
+const SearchDdn = () => {
   // const [query, setQuery] = useState("");
   const [query, setQuery] = useState(
     new URLSearchParams(location.search).get("query")
@@ -101,7 +107,7 @@ const Search = () => {
     <div className=" relative h-fit dark:bg-darkMode ">
       <div className="relative w-full flex justify-center  ">
         <div className="absolute  w-[80%] top-[25px] z-10">
-        <Nav title="Search Page"/>
+          <Nav title="Search Page" />
         </div>
       </div>
 
@@ -190,33 +196,14 @@ const Search = () => {
             <ul className="list listItem grid gap-[20px] sm:grid-cols-2 lg:grid-cols-3 mb-[20px] justify-center">
               {currentProducts.map((product) => (
                 <li className="listItem" key={product.id}>
-                  <div className="border-[1.5px] border-border-gray dark:bg-darkMode-product rounded-[10px] w-[300px] h-[250px] relative">
-                    <div className="flex justify-center items-center mt-10">
-                      <img src={product.img} alt="" className="h-[100px]" />
-                    </div>
-                    <div className="border-t-[1.5px] border-border-gray bg-gallery-blue dark:bg-gallery-blue-dark rounded-b-[10px] absolute bottom-0 w-full h-[70px]">
-                      <p className="font-semibold text-xs m-2">
-                        {product.name}
-                      </p>
-                      <div className="flex items-center justify-between mt-[20px] mx-2">
-                        <div className="flex justify-center items-center">
-                          <div className="size-[20px]">
-                            <img
-                              src={product.companyLogoimg}
-                              alt=""
-                              className="size-full"
-                            />
-                          </div>
-                          <p className="text-sm ml-2">
-                            {product.companyLogoname}
-                          </p>
-                        </div>
-                        <div className="size-13">
-                          <Rating />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    img={product.img}
+                    name={product.name}
+                    companyLogoimg={product.companyLogoimg}
+                    companyLogoname={product.companyLogoname}
+                  />
                 </li>
               ))}
             </ul>
@@ -258,4 +245,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchDdn;
